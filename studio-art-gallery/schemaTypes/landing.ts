@@ -32,9 +32,8 @@ export const landing = defineType({
         ],
         validation: (Rule: any) =>
           Rule.required()
-            .min(3)
             .max(3)
-            .error('Please upload exactly 3 images.'),
+            .error('Maximum 3 images allowed'),
       },
     ],
   });

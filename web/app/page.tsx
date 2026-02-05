@@ -1,12 +1,12 @@
 import Navbar from "@/components/Navbar";
-import { client } from "./sanity/client";
+import LandingPage from "@/components/LandingPage";
 
-export default async function Home() {
-
+export default function Home() {
   return (
-    <div className="">
-      <main className="">
+    <div>
+      <main>
         <Navbar />
+        <LandingPage />
       </main>
     </div>
   );
