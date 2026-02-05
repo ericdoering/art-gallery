@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-
 import { FaTag } from "react-icons/fa6";
 import { MdOutlineFilterFrames } from "react-icons/md";
 import { IoMdContact } from "react-icons/io";
