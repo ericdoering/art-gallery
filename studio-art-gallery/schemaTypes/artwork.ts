@@ -1,5 +1,6 @@
-import { defineField, defineType } from 'sanity'
-import { ImageIcon } from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
+import {ImageIcon} from '@sanity/icons'
+import { ArtworkIdInput } from '../components/ArtworkIdInput'
 
 export const artwork = defineType({
   name: 'artwork',
@@ -7,6 +8,18 @@ export const artwork = defineType({
   type: 'document',
   icon: ImageIcon,
   fields: [
+    defineField({
+      name: 'artworkId',
+      title: 'Artwork ID',
+      type: 'string',
+      description: 'Unique identifier for this artwork',
+      readOnly: true,
+      components: {
+        input: ArtworkIdInput,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+
     defineField({
       name: 'title',
       title: 'Title',
@@ -81,6 +94,7 @@ export const artwork = defineType({
       type: 'number',
       description: 'Price in USD (or your default currency)',
       validation: (Rule) => Rule.min(0),
+      hidden: ({document}) => document?.available === false,
     }),
 
     defineField({
@@ -109,7 +123,7 @@ export const artwork = defineType({
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [{type: 'string'}],
       options: {
         layout: 'tags',
       },
@@ -123,7 +137,7 @@ export const artwork = defineType({
       available: 'available',
     },
     prepare(selection) {
-      const { title, media, available } = selection
+      const {title, media, available} = selection
       return {
         title,
         subtitle: available ? 'Available' : 'Not Available',
