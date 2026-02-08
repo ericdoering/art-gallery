@@ -1,8 +1,11 @@
+import Navbar from '@/components/Navbar';
+import Gallery from '../../components/Gallery';
+
 export default function GalleryPage() {
     return (
       <main>
-        <h1>Gallery</h1>
-        <p>This is the Gallery page</p>
+        <Navbar />
+        <Gallery />
       </main>
     );
   }
