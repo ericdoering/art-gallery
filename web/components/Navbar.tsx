@@ -17,7 +17,7 @@ export default function Navbar() {
         aria-label="Toggle navigation"
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 rounded-md bg-[#001330] p-4 text-white focus:outline-none focus:ring-2 focus:ring-white"
+        className="cursor-pointer fixed top-4 left-4 z-50 rounded-md bg-[#001330] p-4 text-white focus:outline-none focus:ring-2 focus:ring-white"
       >
         {isOpen ? '✕' : '☰'}
       </button>

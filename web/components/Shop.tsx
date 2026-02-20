@@ -8,7 +8,10 @@ export default async function Shop() {
   const items = await client.fetch(`
     *[_type == "artwork"]{
       _id,
-      name,
+      title,
+      description,
+        price,
+      available,
       images[]{
         asset,
         alt
@@ -43,10 +46,19 @@ export default async function Shop() {
                 )}
               </div>
 
-              <h2 className="mt-4 text-2xl font-bold text-gray-100 text-center">
-                {item.name}
+              <h2 className="mt-4 text-2xl font-bold text-gray-100 text-center truncate w-full">
+                {item.description}
               </h2>
 
+              {item.available ? (
+                <h2 className="mt-4 text-2xl font-bold text-gray-100 text-center">
+                  $ {item.price}
+                </h2>
+              ) : (
+                <h2 className="mt-4 text-2xl font-bold text-gray-500 text-center">
+                  Sold
+                </h2>
+              )}
               <Link href={`/shop/${item._id}`} className="w-full mt-6">
                 <button className="cursor-pointer w-full bg-primary bg-[#001330] hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all duration-200">
                   View Item
