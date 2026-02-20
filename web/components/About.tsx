@@ -15,6 +15,7 @@ const query = `
 export default function About() {
   const [title, setTitle] = useState<string | null>(null);
   const [description, setDescription] = useState<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [mainImage, setMainImage] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 

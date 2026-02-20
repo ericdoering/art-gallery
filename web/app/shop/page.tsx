@@ -1,11 +1,11 @@
 import Navbar from '@/components/Navbar';
+import Shop from '@/components/Shop';
 
 export default function ShopPage() {
     return (
       <main>
         <Navbar />
-        <h1>Shop</h1>
-        <p>This is the Shop page</p>
+        <Shop />
       </main>
     );
   }
