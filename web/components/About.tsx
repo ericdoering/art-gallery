@@ -1,51 +1,42 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import Image from "next/image";
 import { client } from "@/app/sanity/client";
 import { urlForImage } from "@/lib/urlForImages";
-import Image from "next/image";
 
-const query = `
-*[_type == "about"]{
+const ABOUT_QUERY = `*[_type == "about"]{
   title,
   description,
   images
 }`;
 
-export default function About() {
-  const [title, setTitle] = useState<string | null>(null);
-  const [description, setDescription] = useState<string | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [mainImage, setMainImage] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+interface SanityImageRef {
+  asset: { _ref: string; _type: "reference" };
+  alt?: string;
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await client.fetch(query);
-        setTitle(data[0]?.title ?? "");
-        setDescription(data[0]?.description ?? "");
-        setMainImage(data[0]?.images?.[0] ?? null);
-      } catch (error) {
-        console.error("Error fetching About data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+interface AboutData {
+  title?: string;
+  description?: string;
+  images?: SanityImageRef[];
+}
 
-    fetchData();
-  }, []);
+export default async function About() {
+  const data: AboutData[] = await client.fetch(ABOUT_QUERY);
+  const about = data?.[0];
 
-  if (loading) {
+  if (!about) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black text-white">
-        <p className="text-lg animate-pulse">Loading...</p>
-      </div>
+      <section className="w-full px-6 py-20">
+        <div className="max-w-6xl mx-auto text-center text-gray-400">
+          <p>About content is not available.</p>
+        </div>
+      </section>
     );
   }
 
+  const mainImage = about.images?.[0];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white px-6 py-20">
+    <section className="w-full px-6 py-20 min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {mainImage && (
           <div className="relative group max-w-md mx-auto md:mx-0">
@@ -62,19 +53,18 @@ export default function About() {
         )}
 
         <div className="space-y-8">
-          {title && (
+          {about.title && (
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              {title}
+              {about.title}
             </h1>
           )}
-
-          {description && (
+          {about.description && (
             <p className="text-lg text-zinc-300 leading-relaxed whitespace-pre-line">
-              {description}
+              {about.description}
             </p>
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
