@@ -1,12 +1,10 @@
 import { client } from "@/app/sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
+import { urlForImage } from "@/lib/urlForImages";
 import Image from "next/image";
-
-const builder = imageUrlBuilder(client);
 
 function urlFor(source: { _type: string; asset?: { _ref: string } } | null) {
   if (!source?.asset?._ref) return null;
-  return builder.image(source).auto("format").fit("max");
+  return urlForImage(source).auto("format").fit("max");
 }
 
 const LANDING_QUERY = `*[_type == "landing"][0] {
@@ -30,7 +28,7 @@ export default async function LandingPage() {
 
   if (!data) {
     return (
-      <section className="min-h-[60vh] flex items-center justify-center px-6">
+      <section className="min-h-[60vh] flex items-center justify-center px-6 bg-gradient-to-b from-black via-zinc-900 to-black text-white">
         <p className="text-[var(--foreground)]/70 text-lg">
           No landing content found. Add a landing document in Sanity Studio.
         </p>
@@ -44,7 +42,7 @@ export default async function LandingPage() {
     .filter((url): url is NonNullable<typeof url> => url !== null);
 
   return (
-    <section className="min-h-screen pt-12 pb-16 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-zinc-900 to-black text-white">
       <div className="max-w-5xl mx-auto bg-[#001330] p-8 rounded-lg">
         <header className="text-center mb-14 md:mb-18">
           <h1 className="font-semibold text-white text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[var(--foreground)] mb-5 max-w-3xl mx-auto">
