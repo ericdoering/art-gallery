@@ -78,10 +78,10 @@ export default async function Shop() {
 
                 {item.available ? (
                   <p className="mt-4 text-2xl font-bold text-gray-100 text-center">
-                    $ {item.price}
+                    $ {item.price}.00
                   </p>
                 ) : (
-                  <p className="mt-4 text-2xl font-bold text-gray-500 text-center">
+                  <p className="mt-4 text-2xl font-bold text-red-500 text-center">
                     Sold
                   </p>
                 )}
