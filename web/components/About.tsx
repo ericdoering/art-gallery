@@ -36,35 +36,37 @@ export default async function About() {
   const mainImage = about.images?.[0];
 
   return (
-    <section className="w-full px-6 py-20 min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-        {mainImage && (
-          <div className="relative group max-w-md mx-auto md:mx-0">
-            <div className="absolute -inset-1 bg-gradient-to-r from-white/20 to-white/5 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500" />
-            <Image
-              src={urlForImage(mainImage).width(800).url()}
-              alt={mainImage.alt ?? "About image"}
-              width={800}
-              height={600}
-              className="relative rounded-2xl object-cover w-full h-auto shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
-              priority
-            />
-          </div>
-        )}
+    <>
+      <section className="w-full px-6 py-20 min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          {mainImage && (
+            <div className="relative group max-w-md mx-auto md:mx-0">
+              <div className="absolute -inset-1 bg-gradient-to-r from-white/20 to-white/5 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition duration-500" />
+              <Image
+                src={urlForImage(mainImage).width(800).url()}
+                alt={mainImage.alt ?? "About image"}
+                width={800}
+                height={600}
+                className="relative rounded-2xl object-cover w-full h-auto shadow-xl transition-transform duration-500 group-hover:scale-[1.02]"
+                priority
+              />
+            </div>
+          )}
 
-        <div className="space-y-8">
-          {about.title && (
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-              {about.title}
-            </h1>
-          )}
-          {about.description && (
-            <p className="text-lg text-zinc-300 leading-relaxed whitespace-pre-line">
-              {about.description}
-            </p>
-          )}
+          <div className="space-y-8">
+            {about.title && (
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+                {about.title}
+              </h1>
+            )}
+            {about.description && (
+              <p className="text-lg text-zinc-300 leading-relaxed whitespace-pre-line">
+                {about.description}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

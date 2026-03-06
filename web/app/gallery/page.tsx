@@ -2,10 +2,12 @@ import Navbar from '@/components/Navbar';
 import Gallery from '../../components/Gallery';
 
 export default function GalleryPage() {
-    return (
+  return (
+    <>
       <main>
         <Navbar />
         <Gallery />
       </main>
-    );
-  }
+    </>
+  );
+}

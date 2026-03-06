@@ -40,40 +40,42 @@ export function GalleryCarousel({ artworks }: GalleryCarouselProps) {
   };
 
   return (
-    <div className="relative flex items-center gap-6">
-      <button
-        type="button"
-        onClick={goPrev}
-        className="flex items-center justify-center w-12 h-12 rounded-full bg-white/80 hover:bg-white transition text-2xl font-light text-black shadow cursor-pointer"
-        aria-label="Previous artwork"
-      >
-        ←
-      </button>
+    <>
+      <div className="relative flex items-center gap-6">
+        <button
+          type="button"
+          onClick={goPrev}
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-white/80 hover:bg-white transition text-2xl font-light text-black shadow cursor-pointer"
+          aria-label="Previous artwork"
+        >
+          ←
+        </button>
 
-      <div className="relative max-w-[80vw] max-h-[80vh]">
-        <Image
-          src={urlForImage(currentImage).width(1200).url()}
-          alt={currentImage.alt ?? "Artwork image"}
-          width={1200}
-          height={800}
-          className="object-contain max-h-[80vh] w-auto rounded-sm"
-          priority
-        />
-        {currentArtwork.description && (
-          <h2 className="text-white text-2xl text-center mt-4">
-            {currentArtwork.description}
-          </h2>
-        )}
+        <div className="relative max-w-[80vw] max-h-[80vh]">
+          <Image
+            src={urlForImage(currentImage).width(1200).url()}
+            alt={currentImage.alt ?? "Artwork image"}
+            width={1200}
+            height={800}
+            className="object-contain max-h-[80vh] w-auto rounded-sm"
+            priority
+          />
+          {currentArtwork.description && (
+            <h2 className="text-white text-2xl text-center mt-4">
+              {currentArtwork.description}
+            </h2>
+          )}
+        </div>
+
+        <button
+          type="button"
+          onClick={goNext}
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-white/80 hover:bg-white transition text-2xl font-light text-black shadow cursor-pointer"
+          aria-label="Next artwork"
+        >
+          →
+        </button>
       </div>
-
-      <button
-        type="button"
-        onClick={goNext}
-        className="flex items-center justify-center w-12 h-12 rounded-full bg-white/80 hover:bg-white transition text-2xl font-light text-black shadow cursor-pointer"
-        aria-label="Next artwork"
-      >
-        →
-      </button>
-    </div>
+    </>
   );
 }

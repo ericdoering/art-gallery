@@ -39,13 +39,15 @@ export default async function ShopItemPage({ params }: { params: Promise<{ id: s
   const artworkId = item.artworkId ?? null;
 
   return (
-    <ShopItemContent
-      title={item.title ?? null}
-      description={item.description ?? null}
-      displayPrice={displayPrice}
-      available={available}
-      imageUrl={imageUrl}
-      artworkId={artworkId}
-    />
+    <>
+      <ShopItemContent
+        title={item.title ?? null}
+        description={item.description ?? null}
+        displayPrice={displayPrice}
+        available={available}
+        imageUrl={imageUrl}
+        artworkId={artworkId}
+      />
+    </>
   );
 }
