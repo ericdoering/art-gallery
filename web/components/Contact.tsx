@@ -44,100 +44,104 @@ export default async function Contact() {
 
   if (!contact) {
     return (
-      <section className="w-full px-6 py-20">
-        <div className="max-w-4xl mx-auto text-center text-gray-400">
-          <p>Contact information is not available.</p>
-        </div>
-      </section>
+      <>
+        <section className="w-full px-6 py-20">
+          <div className="max-w-4xl mx-auto text-center text-gray-400">
+            <p>Contact information is not available.</p>
+          </div>
+        </section>
+      </>
     );
   }
 
   return (
-    <section className="w-full min-h-screen px-6 py-20 bg-gradient-to-b from-black via-zinc-900 to-black text-white">
-      <div className="max-w-4xl mx-auto shadow-2xl rounded-3xl p-12 bg-[#001330]">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          {contact.profileImage && (
-            <div className="relative w-48 h-48">
-              <Image
-                src={urlForImage(contact.profileImage)
-                  .width(400)
-                  .height(400)
-                  .url()}
-                alt={contact.name}
-                fill
-                className="rounded-full object-cover shadow-xl"
-                sizes="192px"
-              />
-            </div>
-          )}
-
-          <div className="flex-1 text-center md:text-left">
-            <h1 className="text-4xl font-bold text-white">
-              {contact.name}
-            </h1>
-
-            <div className="mt-6 space-y-3 text-gray-600 text-lg">
-              <p>
-                <span className="font-semibold text-white">Email:</span>{" "}
-                <a
-                  href={`mailto:${contact.email}`}
-                  className="text-blue-100 hover:underline"
-                >
-                  {contact.email}
-                </a>
-              </p>
-
-              <p>
-                <span className="font-semibold text-white">Phone:</span>{" "}
-                <a
-                  href={`tel:${contact.phone}`}
-                  className="text-blue-100 hover:underline"
-                >
-                  {contact.phone}
-                </a>
-              </p>
-
-              <p className="text-white">
-                <span className="font-semibold">Location:</span>{" "}
-                {contact.location}
-              </p>
-            </div>
-
-            {contact.socialLinks && contact.socialLinks.length > 0 && (
-              <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-                {contact.socialLinks.map((link) => (
-                  <a
-                    key={link._key}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-5 py-3 bg-gray-100 hover:bg-gray-200 transition rounded-xl shadow-sm hover:shadow-md"
-                  >
-                    {link.icon && (
-                      <div className="relative w-6 h-6">
-                        <Image
-                          src={urlForImage(link.icon)
-                            .width(50)
-                            .height(50)
-                            .url()}
-                          alt={link.platform}
-                          fill
-                          className="object-contain rounded"
-                          sizes="24px"
-                        />
-                      </div>
-                    )}
-
-                    <span className="capitalize font-medium text-gray-800">
-                      {link.platform}
-                    </span>
-                  </a>
-                ))}
+    <>
+      <section className="w-full min-h-screen px-6 py-20 bg-gradient-to-b from-black via-zinc-900 to-black text-white">
+        <div className="max-w-4xl mx-auto shadow-2xl rounded-3xl p-12 bg-[#001330]">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {contact.profileImage && (
+              <div className="relative w-48 h-48">
+                <Image
+                  src={urlForImage(contact.profileImage)
+                    .width(400)
+                    .height(400)
+                    .url()}
+                  alt={contact.name}
+                  fill
+                  className="rounded-full object-cover shadow-xl"
+                  sizes="192px"
+                />
               </div>
             )}
+
+            <div className="flex-1 text-center md:text-left">
+              <h1 className="text-4xl font-bold text-white">
+                {contact.name}
+              </h1>
+
+              <div className="mt-6 space-y-3 text-gray-600 text-lg">
+                <p>
+                  <span className="font-semibold text-white">Email:</span>{" "}
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="text-blue-100 hover:underline"
+                  >
+                    {contact.email}
+                  </a>
+                </p>
+
+                <p>
+                  <span className="font-semibold text-white">Phone:</span>{" "}
+                  <a
+                    href={`tel:${contact.phone}`}
+                    className="text-blue-100 hover:underline"
+                  >
+                    {contact.phone}
+                  </a>
+                </p>
+
+                <p className="text-white">
+                  <span className="font-semibold">Location:</span>{" "}
+                  {contact.location}
+                </p>
+              </div>
+
+              {contact.socialLinks && contact.socialLinks.length > 0 && (
+                <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+                  {contact.socialLinks.map((link) => (
+                    <a
+                      key={link._key}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 px-5 py-3 bg-gray-100 hover:bg-gray-200 transition rounded-xl shadow-sm hover:shadow-md"
+                    >
+                      {link.icon && (
+                        <div className="relative w-6 h-6">
+                          <Image
+                            src={urlForImage(link.icon)
+                              .width(50)
+                              .height(50)
+                              .url()}
+                            alt={link.platform}
+                            fill
+                            className="object-contain rounded"
+                            sizes="24px"
+                          />
+                        </div>
+                      )}
+
+                      <span className="capitalize font-medium text-gray-800">
+                        {link.platform}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
