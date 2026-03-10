@@ -1,6 +1,7 @@
 'use client';
 
 import Navbar from '@/components/Navbar';
+import SaleDialogue from '@/components/SaleDialogue';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -60,20 +61,7 @@ export default function ShopItemContent({
                   Contact for Purchase
                 </button>
                 {isOpen && (
-                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
-                    <div className="w-full max-w-md bg-white p-8 shadow-xl">
-                      <h2 className="text-2xl font-serif mb-4">Inquire about &quot;{title}&quot;</h2>
-                      <p className="text-neutral-600 mb-6">
-                        Please email us at <span className="font-medium">gallery@example.com</span> to complete your purchase.
-                      </p>
-                      <button
-                        onClick={() => setIsOpen(false)}
-                        className="w-full bg-black text-white py-3 text-sm font-sans uppercase tracking-widest hover:bg-neutral-800 transition-colors"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
+                  <SaleDialogue title={title ?? "Untitled"} artworkId={artworkId ?? "Unknown"} setIsOpen={setIsOpen} />
                 )}
               </>
             )}
