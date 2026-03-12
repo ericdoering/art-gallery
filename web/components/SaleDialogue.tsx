@@ -11,10 +11,10 @@ export default function SaleDialogue({
     artworkId,
     setIsOpen,
 }: SaleDialogueProps) {
-    const email = "gallery@example.com";
+    const email = "ericdoeringart@gmail.com";
 
-    const subject = `Purchase: ${title} - ${artworkId}`;
-    const body = `I would like to purchase the artwork ${title} - ${artworkId}.`;
+    const subject = `Purchase: "${title}" - ${artworkId}`;
+    const body = `I would like to purchase the artwork "${title}" - ${artworkId}.`;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
@@ -50,7 +50,7 @@ export default function SaleDialogue({
                 </ol>
                 <button
                     onClick={() => setIsOpen(false)}
-                    className="mt-6 w-full bg-black text-white py-3 text-sm font-sans uppercase tracking-widest hover:bg-neutral-800 transition-colors"
+                    className="mt-6 w-full bg-black text-white py-3 text-sm font-sans uppercase tracking-widest hover:bg-neutral-800 transition-colors cursor-pointer"
                 >
                     Close
                 </button>
