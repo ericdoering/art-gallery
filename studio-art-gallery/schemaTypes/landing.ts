@@ -1,9 +1,11 @@
+import { HomeIcon } from "@sanity/icons";
 import { defineType } from "sanity";
 
 export const landing = defineType({
     name: 'landing',
     title: 'Landing',
     type: 'document',
+    icon: HomeIcon,
     fields: [
       {
         name: 'title',
