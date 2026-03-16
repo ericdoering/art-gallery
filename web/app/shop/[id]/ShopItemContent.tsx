@@ -30,7 +30,7 @@ export default function ShopItemContent({
       <main className="min-h-screen bg-white">
         <Navbar />
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 pt-24 pb-16 md:grid-cols-[0.9fr_1.1fr] md:gap-12 lg:gap-16">
-          <div className="flex flex-col justify-center font-serif">
+          <div className="flex flex-col justify-center">
             <h1 className="text-3xl font-normal tracking-tight text-black md:text-5xl lg:text-[2.5rem] leading-[1.2]">
               {title ?? 'Untitled'}
             </h1>
@@ -56,7 +56,7 @@ export default function ShopItemContent({
                 <button
                   onClick={() => setIsOpen(true)}
                   type="button"
-                  className="mt-10 rounded-full bg-[#001330] px-12 py-4 text-base font-sans font-medium text-white shadow-lg shadow-indigo-200 transition-transform hover:-translate-y-1 hover:bg-blue-600 cursor-pointer"
+                  className="mt-10 rounded-full bg-[#001330] px-12 py-4 text-base font-medium text-white shadow-lg shadow-indigo-200 transition-transform hover:-translate-y-1 hover:bg-blue-600 cursor-pointer"
                 >
                   Contact for Purchase
                 </button>
@@ -87,7 +87,7 @@ export default function ShopItemContent({
         <div className="flex justify-center">
           <Link
             href="/shop"
-            className="mt-2 inline-flex w-fit items-center gap-1 font-sans text-base text-black underline underline-offset-2 hover:opacity-80"
+            className="mt-2 inline-flex w-fit items-center gap-1 text-base text-black underline underline-offset-2 hover:opacity-80"
           >
             ← Back to Shop
           </Link>
