@@ -19,13 +19,13 @@ export default function SaleDialogue({
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
             <div className="w-full max-w-md bg-white p-8 shadow-xl">
-                <h2 className="text-2xl font-serif mb-6">
+                <h2 className="text-2xl font-serif mb-6 text-black">
                     Thank you for your interest in <span className="whitespace-nowrap">"{title}"</span>
                 </h2>
-                <p className="text-lg font-serif mb-6">
+                <p className="text-lg font-serif mb-6 text-black">
                     Follow the steps below to secure your purchase:
                 </p>
-                <ol className="list-decimal list-inside space-y-8 text-sm">
+                <ol className="list-decimal list-inside space-y-8 text-sm text-black">
                     <li>
                         Email us at{" "}
                         <span className="font-medium text-blue-600">{email}</span>
