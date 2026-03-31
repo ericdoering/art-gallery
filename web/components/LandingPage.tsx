@@ -55,36 +55,48 @@ export default async function LandingPage() {
               {description}
             </p>
           </header>
-
           {imageUrls.length > 0 && (
-            <div className="max-w-[24rem] mx-auto">
+            <div className="mx-auto max-w-5xl">
               <div
-                className={`grid gap-4 sm:gap-6 ${imageUrls.length === 1
-                  ? "grid-cols-1"
-                  : imageUrls.length === 2
-                    ? "grid-cols-1 sm:grid-cols-2"
-                    : "grid-cols-1 sm:grid-cols-3"
-                  }`}
+                className={`grid gap-4 sm:gap-6 ${
+                  imageUrls.length === 1
+                    ? "grid-cols-1"
+                    : imageUrls.length === 2
+                      ? "grid-cols-1 sm:grid-cols-2"
+                      : "grid-cols-1 sm:grid-cols-3 auto-rows-[200px] md:auto-rows-[250px]"
+                }`}
               >
                 {imageUrls.map((url, i) => (
                   <div
                     key={i}
-                    className="relative aspect-[4/3] sm:aspect-[3/4] rounded-lg overflow-hidden bg-[var(--foreground)]/5"
+                    className={`group relative overflow-hidden rounded-xl bg-white/5 ${
+                      imageUrls.length >= 3
+                        ? i === 0
+                          ? "sm:col-span-2 sm:row-span-2 min-h-[300px] sm:min-h-0"
+                          : ""
+                        : "aspect-[4/3]"
+                    }`}
                   >
                     <Image
                       src={url.url()}
-                      alt={title ? `${title} — image ${i + 1}` : `Gallery image ${i + 1}`}
+                      alt={
+                        title
+                          ? `${title} — image ${i + 1}`
+                          : `Gallery image ${i + 1}`
+                      }
                       fill
                       sizes={
                         imageUrls.length === 1
-                          ? "(max-width: 512px) 100vw, 512px"
+                          ? "100vw"
                           : imageUrls.length === 2
-                            ? "(max-width: 640px) 100vw, 256px"
-                            : "(max-width: 640px) 100vw, 170px"
+                            ? "(max-width: 640px) 100vw, 50vw"
+                            : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       }
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                       priority={i === 0}
                     />
+
+                    <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   </div>
                 ))}
               </div>
