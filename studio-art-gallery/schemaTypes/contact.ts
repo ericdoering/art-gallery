@@ -70,6 +70,7 @@ export const contact = defineType({
                   { title: 'Instagram', value: 'instagram' },
                   { title: 'Facebook', value: 'facebook' },
                   { title: 'Website', value: 'website' },
+                  { title: 'Venmo', value: 'venmo' },
                 ],
               },
               validation: (Rule) => Rule.required(),
