@@ -33,7 +33,9 @@ export default function Navbar() {
         className={`fixed left-0 top-0 z-50 h-full w-64 transform bg-[#001330] text-white transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
-        <div className="p-6 text-xl font-semibold">Eric Doering</div>
+        <Link href="/" onClick={() => setIsOpen(false)}>
+          <div className="p-6 text-xl font-semibold">Eric Doering</div>
+        </Link>
 
         <ul className="space-y-4 px-6">
           <li className="flex items-center gap-2">
