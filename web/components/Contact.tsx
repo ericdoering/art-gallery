@@ -147,12 +147,12 @@ export default async function Contact() {
                   contact.socialLinks[contact.socialLinks.length - 1];
 
                 return (
-                  <div className="flex flex-col items-center md:items-end">
+                  <div className="flex flex-col items-center">
+                    <p className="text-medium font-medium mb-2">Donate</p>
                     <a
                       href={venmo.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-transparent w-[220px] h-[220px] flex items-center justify-center"
                     >
                       {venmo.icon && (
                         <div className="bg-white rounded-2xl p-6 shadow-lg flex items-center justify-center">
