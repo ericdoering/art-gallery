@@ -71,6 +71,7 @@ export const contact = defineType({
                   { title: 'Facebook', value: 'facebook' },
                   { title: 'Website', value: 'website' },
                   { title: 'Venmo', value: 'venmo' },
+                  { title: 'Youtube', value: 'youtube' },
                 ],
               },
               validation: (Rule) => Rule.required(),
