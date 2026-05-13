@@ -54,7 +54,7 @@ export function GalleryCarousel({ artworks }: GalleryCarouselProps) {
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <div className="relative flex flex-col items-center gap-4">
+    <div className="relative flex flex-col items-center gap-2">
       <button
         onClick={() => {
           setAutoplay((prev) => !prev);

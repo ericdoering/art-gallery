@@ -34,7 +34,7 @@ export default async function Gallery() {
 
   return (
     <>
-      <section className="w-full min-h-screen px-6 py-20 flex items-center justify-center bg-gradient-to-b from-black via-zinc-900 to-black text-white">
+      <section className="w-full min-h-screen px-6 py-2 flex items-center justify-center bg-gradient-to-b from-black via-zinc-900 to-black text-white">
         <div className="max-w-6xl mx-auto flex justify-center">
           <GalleryCarousel artworks={artworks} />
         </div>

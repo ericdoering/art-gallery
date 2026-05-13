@@ -46,8 +46,8 @@ export default async function LandingPage() {
   return (
     <>
       <section className="min-h-screen pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-zinc-900 to-black text-white">
-        <div className="max-w-5xl mx-auto bg-[#001330] p-8 rounded-lg">
-          <header className="text-center mb-14 md:mb-18">
+        <div className="max-w-6xl mx-auto bg-[#001330] p-8 rounded-lg">
+          <header className="text-center mb-14 md:mb-8">
             <h1 className="font-semibold text-white text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[var(--foreground)] mb-5 max-w-3xl mx-auto">
               {title}
             </h1>
