@@ -35,7 +35,7 @@ export default async function Shop() {
   if (!items.length) {
     return (
       <>
-        <section className="w-full min-h-screen px-6 py-20 bg-gradient-to-b from-black via-zinc-900 to-black text-white">
+        <section className="w-full min-h-screen px-6 py-20 bg-gradient-to-b from-black-800 via-zinc-900 to-black text-white">
           <div className="max-w-6xl mx-auto text-center text-gray-400">
             <p>No artwork available at the moment.</p>
           </div>
@@ -91,7 +91,7 @@ export default async function Shop() {
                   <Link href={`/shop/${item._id}`} className="w-full mt-6">
                     <button
                       type="button"
-                      className="cursor-pointer w-full bg-[#001330] hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-all duration-200"
+                      className="cursor-pointer w-full bg-[#2A2450] hover:bg-[#39335F] text-white font-semibold py-3 rounded-lg transition-all duration-200"
                     >
                       View Item
                     </button>

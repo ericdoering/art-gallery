@@ -98,7 +98,7 @@ export default function ShopItemContent({
                 <button
                   onClick={() => setIsOpen(true)}
                   type="button"
-                  className="mt-10 rounded-full bg-[#001330] px-12 py-4 text-base font-medium text-white shadow-lg shadow-indigo-200 transition-transform hover:-translate-y-1 hover:bg-blue-600 cursor-pointer"
+                  className="mt-10 rounded-full bg-[#2A2450] px-12 py-4 text-base font-medium text-white shadow-lg shadow-indigo-200 transition-transform hover:-translate-y-1 hover:bg-[#39335F] cursor-pointer"
                 >
                   Contact for Purchase
                 </button>
@@ -151,10 +151,10 @@ export default function ShopItemContent({
             )}
           </div>
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-12">
           <Link
             href="/shop"
-            className="mt-2 inline-flex w-fit items-center gap-1 text-base text-black underline underline-offset-2 hover:opacity-80"
+            className="mt-2 inline-flex w-fit items-center gap-1 text-2xl text-black underline underline-offset-2 hover:opacity-80"
           >
             ← Back to Shop
           </Link>

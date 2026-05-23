@@ -17,7 +17,7 @@ export default function Navbar() {
         aria-label="Toggle navigation"
         aria-expanded={isOpen}
         onClick={() => setIsOpen(!isOpen)}
-        className="cursor-pointer fixed top-4 left-4 z-50 rounded-md bg-[#001330] p-4 text-white focus:outline-none focus:ring-2 focus:ring-white"
+        className="cursor-pointer fixed top-4 left-4 z-50 rounded-md bg-[#2A2450] p-4 text-white focus:outline-none focus:ring-2 focus:ring-white"
       >
         {isOpen ? '✕' : '☰'}
       </button>
@@ -30,7 +30,7 @@ export default function Navbar() {
       )}
 
       <nav
-        className={`fixed left-0 top-0 z-50 h-full w-64 transform bg-[#001330] text-white transition-transform duration-300 ease-in-out
+        className={`fixed left-0 top-0 z-50 h-full w-64 transform bg-[#2A2450] text-white transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <Link href="/" onClick={() => setIsOpen(false)}>
