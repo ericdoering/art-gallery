@@ -57,7 +57,7 @@ export default async function Contact() {
   return (
     <>
       <section className="w-full min-h-screen px-6 py-20 bg-gradient-to-b from-black via-zinc-900 to-black text-white">
-        <div className="max-w-4xl mx-auto shadow-2xl rounded-3xl p-12 bg-[#001330]">
+        <div className="max-w-4xl mx-auto shadow-2xl rounded-3xl p-12 bg-[#2A2450]">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
             <div className="flex flex-col md:flex-row items-center gap-12 flex-1">
               {contact.profileImage && (
