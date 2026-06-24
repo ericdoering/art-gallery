@@ -79,6 +79,9 @@ export default function ShopItemContent({
             {available ? (
               <p className="mt-6 text-2xl font-normal text-black md:text-3xl">
                 {displayPrice}
+                <span className="ml-1 text-base font-normal md:text-lg">
+                  + shipping
+                </span>
               </p>
             ) : (
               <p className="mt-6 text-2xl text-red-500 font-normal text-black md:text-3xl">
