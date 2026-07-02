@@ -45,37 +45,40 @@ export default async function LandingPage() {
 
   return (
     <>
-      <section className="min-h-screen pt-12 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black via-zinc-900 to-black text-white">
-        <div className="max-w-6xl mx-auto bg-[#2A2450] p-8 rounded-lg">
-          <header className="text-center mb-14 md:mb-8">
-            <h1 className="font-semibold text-white text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[var(--foreground)] mb-5 max-w-3xl mx-auto">
+      <section className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black px-4 sm:px-6 sm:py-20 lg:px-8 lg:py-4 text-white">
+        <div className="mx-auto max-w-6xl rounded-2xl bg-[#2A2450] p-5 sm:p-8 lg:p-12">
+          <header className="mb-10 text-center sm:mb-12">
+            <h1 className="mx-auto mb-4 max-w-4xl text-3xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               {title}
             </h1>
-            <p className="text-lg text-white sm:text-xl text-[var(--foreground)]/80 leading-relaxed max-w-2xl mx-auto">
+
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg lg:text-xl">
               {description}
             </p>
           </header>
+
           {imageUrls.length > 0 && (
             <div className="mx-auto max-w-5xl">
               <div
-                className={`grid gap-4 sm:gap-6 ${
+                className={`grid gap-4 ${
                   imageUrls.length === 1
                     ? "grid-cols-1"
                     : imageUrls.length === 2
-                      ? "grid-cols-1 sm:grid-cols-2"
-                      : "grid-cols-1 sm:grid-cols-3 auto-rows-[200px] md:auto-rows-[250px]"
+                      ? "grid-cols-1 md:grid-cols-2"
+                      : "grid-cols-1 md:grid-cols-3 md:auto-rows-[220px] lg:auto-rows-[260px]"
                 }`}
               >
                 {imageUrls.map((url, i) => (
                   <div
                     key={i}
-                    className={`group relative overflow-hidden rounded-xl bg-white/5 ${
-                      imageUrls.length >= 3
-                        ? i === 0
-                          ? "sm:col-span-2 sm:row-span-2 min-h-[300px] sm:min-h-0"
-                          : ""
-                        : "aspect-[4/3]"
-                    }`}
+                    className={`group relative overflow-hidden rounded-lg md:rounded-xl bg-white/5
+              ${
+                imageUrls.length >= 3
+                  ? i === 0
+                    ? "aspect-[4/3] md:aspect-auto md:col-span-2 md:row-span-2"
+                    : "aspect-[4/3] md:aspect-auto"
+                  : "aspect-[4/3]"
+              }`}
                   >
                     <Image
                       src={url.url()}
@@ -85,15 +88,15 @@ export default async function LandingPage() {
                           : `Gallery image ${i + 1}`
                       }
                       fill
+                      priority={i === 0}
                       sizes={
                         imageUrls.length === 1
                           ? "100vw"
                           : imageUrls.length === 2
-                            ? "(max-width: 640px) 100vw, 50vw"
-                            : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            ? "(max-width: 768px) 100vw, 50vw"
+                            : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       }
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      priority={i === 0}
                     />
 
                     <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

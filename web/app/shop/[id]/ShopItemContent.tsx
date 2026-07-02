@@ -69,7 +69,7 @@ export default function ShopItemContent({
 
   return (
     <>
-      <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-gray-300">
         <Navbar />
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 pt-24 pb-16 md:grid-cols-[0.9fr_1.1fr] md:gap-12 lg:gap-16">
           <div className="flex flex-col justify-center">
