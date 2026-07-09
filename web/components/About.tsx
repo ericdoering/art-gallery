@@ -1,10 +1,13 @@
 import Image from "next/image";
 import { client } from "@/app/sanity/client";
 import { urlForImage } from "@/lib/urlForImages";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
 
 const ABOUT_QUERY = `*[_type == "about"]{
   title,
   description,
+  additionalText,
   images
 }`;
 
@@ -15,7 +18,8 @@ interface SanityImageRef {
 
 interface AboutData {
   title?: string;
-  description?: string;
+  description?: PortableTextBlock[];
+  additionalText?: PortableTextBlock[];
   images?: SanityImageRef[];
 }
 
@@ -60,9 +64,9 @@ export default async function About() {
               </h1>
             )}
             {about.description && (
-              <p className="text-lg text-zinc-300 leading-relaxed whitespace-pre-line">
-                {about.description}
-              </p>
+              <div className="prose prose-invert max-w-none text-zinc-300">
+                <PortableText value={about.description} />
+              </div>
             )}
           </div>
         </div>

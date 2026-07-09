@@ -16,9 +16,14 @@ export const about = defineType({
       {
         name: 'description',
         title: 'Description',
-        type: 'text',
-        rows: 4,
-        validation: (Rule: any) => Rule.required(),
+        type: 'array',
+        of: [{type: 'block'}],
+      },
+      {
+        name: 'additionalText',
+        title: 'Additional Text',
+        type: 'array',
+        of: [{type: 'block'}],
       },
       {
         name: 'images',
