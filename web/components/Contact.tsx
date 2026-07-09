@@ -148,7 +148,7 @@ export default async function Contact() {
 
                 return (
                   <div className="flex flex-col items-center">
-                    <p className="text-medium font-medium mb-2">Donate</p>
+                    <p className="text-medium font-medium mb-2">Donate 🎨</p>
                     <a
                       href={venmo.url}
                       target="_blank"
