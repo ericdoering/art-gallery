@@ -13,13 +13,11 @@ export const artwork = defineType({
       title: 'Artwork ID',
       type: 'string',
       description: 'Unique identifier for this artwork',
-      readOnly: true,
       components: {
         input: ArtworkIdInput,
       },
       validation: (Rule) => Rule.required(),
     }),
-
     defineField({
       name: 'title',
       title: 'Title',
