@@ -48,12 +48,12 @@ export default async function LandingPage() {
       <section className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black px-4 sm:px-6 sm:py-20 lg:px-8 lg:py-4 text-white">
         <div className="mx-auto max-w-6xl rounded-2xl bg-[#2A2450] p-5 sm:p-8 lg:p-12">
           <header className="mb-10 text-center sm:mb-12">
-            <h1 className="mx-auto mb-4 max-w-4xl text-3xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mx-auto mb-4 max-w-4xl text-3xl font-semibold tracking-tight sm:text-5xl lg:text-6xl drop-shadow-lg">
               {title}
             </h1>
 
-            <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg lg:text-xl">
-              {description}
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg lg:text-2xl drop-shadow-lg">
+              - {description} -
             </p>
           </header>
 
@@ -71,7 +71,7 @@ export default async function LandingPage() {
                 {imageUrls.map((url, i) => (
                   <div
                     key={i}
-                    className={`group relative overflow-hidden rounded-lg md:rounded-xl bg-white/5
+                    className={`group relative overflow-hidden rounded-lg md:rounded-xl bg-white/5 shadow-xl
               ${
                 imageUrls.length >= 3
                   ? i === 0
