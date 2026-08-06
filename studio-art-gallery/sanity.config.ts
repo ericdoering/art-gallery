@@ -23,6 +23,8 @@ export default defineConfig({
             S.documentTypeListItem('about').title('About'),
             S.divider(),
             S.documentTypeListItem('contact').title('Contact'),
+            S.divider(),
+            S.documentTypeListItem('media').title('Media'),
           ]),
     }),
     visionTool(),
