@@ -13,7 +13,11 @@ export const media = defineType({
 			type: 'string',
 			validation: (Rule) => Rule.required(),
 		}),
-
+		defineField({
+			name: 'description',
+			title: 'Description',
+			type: 'text',
+		}),
 		defineField({
 			name: 'image',
 			title: 'Image',
